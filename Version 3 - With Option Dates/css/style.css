@@ -1,0 +1,56 @@
+
+*{
+  box-sizing: border-box;
+}
+
+
+html {
+  background-image: url("..//images/backgroup.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;  
+}
+
+h1 {
+  color:rgb(243,233,233);
+  text-align: center;
+}
+
+.container, li{
+  margin:auto;
+  width: 60%;
+  background-color: rgb(24,33,67);
+  color:rgb(243,233,233);
+  border-radius: 7px;
+ 
+}
+
+.resultsContainers{
+  margin-top: 60px;
+}
+
+li{
+  display: inline;
+  font-size: 18px;
+  width: 15%;
+  
+}
+
+button{
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: auto;
+}
+
+input{
+  margin: 30px auto;
+  font-size:18px;
+  border:1px solid #ddd;
+  border-radius:5px;
+  padding:5px;
+  display: block;
+}
+
