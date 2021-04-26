@@ -34,21 +34,17 @@ function preventMyDefault(event){
     zodiacInput.value = ''
 }
 
-
 const addPerson = (nameInput, zodiacInput) => {
     const displayInput = document.createElement('li')
     const trashCan = document.createElement('span')
     const container = document.querySelector('#addPerson')
-    // const zodiac = document.createElement("p")
-    displayInput.innerText = `${nameInput} ${zodiacInput}`
-    zodiac.innerText = horoscopeResults()
-    trashCan.innerText = " Delete"
+    const zodiac = document.createElement("p")
+    displayInput.innerText = `${nameInput} ${zodiacInput} ${horoscopeResults(results)}`
+    trashCan.innerText = "Delete"
     container.append(displayInput)
     displayInput.append(trashCan)
-    // displayInput.append(zodiac)
 }
 
-const results = document.querySelector('#zodiac')
 function horoscopeResults (results){
     const horoscopes = {
         aries : "Aries: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
@@ -64,10 +60,10 @@ function horoscopeResults (results){
         aquarius : "Aquarius: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
         pisces : "Pisces: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio."
     }
-  console.log(horoscopes[results])
-  console.log(results)
+  return horoscopes[results]
 }
 
-horoscopeResults("virgo")
+let virgo = horoscopeResults("virgo")
+console.log("after running: ", virgo)
 
 
