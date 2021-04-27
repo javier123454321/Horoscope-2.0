@@ -1,4 +1,3 @@
-
 /*Create a horoscope page
 Type in first name 
 Type in birthdate  
@@ -20,32 +19,93 @@ refesh and choose a differnt day
 ♓ Pisces (Fish): February 19–March 20
 */
 
+const listOfPeople = []
 
 const form = document.querySelector('form').addEventListener("submit",preventMyDefault)
-
-
 
 function preventMyDefault(event){
     event.preventDefault()
     const nameInput = document.querySelector('#firstName')
     const zodiacInput = document.querySelector('#zodiac')
-    addPerson(nameInput.value, zodiacInput.value)
+    let person = createPerson(nameInput.value, zodiacInput.value)
+    listOfPeople.push(person)
     nameInput.value = ''
     zodiacInput.value = ''
+
 }
 
-const addPerson = (nameInput, zodiacInput) => {
-    const displayInput = document.createElement('li')
-    const trashCan = document.createElement('span')
-    const container = document.querySelector('#addPerson')
-    const zodiac = document.createElement("p")
-    displayInput.innerText = `${nameInput} ${zodiacInput} ${horoscopeResults(results)}`
-    trashCan.innerText = "Delete"
-    container.append(displayInput)
-    displayInput.append(trashCan)
+const addPerson = (person) => {
+    if(person.type === "Person"){
+        const displayInput = document.createElement('li')
+        const trashCan = document.createElement('span')
+        const container = document.querySelector('#addPerson')
+
+        displayInput.innerText = `${person.name} ${person.zodiac} ${horoscopeResults(person.zodiac)}`
+        
+        trashCan.innerText = " Delete"
+        container.append(displayInput)
+        displayInput.append(trashCan)
+    }else if(person.type === "Dog"){
+        console.log("woof")
+    }
 }
 
-function horoscopeResults (results){
+function createPerson(nameInput, zodiacInput){
+    const newPerson = {
+        name: nameInput,
+        zodiac: zodiacInput,
+        type: "Person"
+    }
+    return newPerson
+}
+
+function createDog(nameInput, zodiacInput){
+    const newDog = {
+        name: nameInput,
+        zodiac: zodiacInput,
+        type: "Dog"
+    }
+    return newDog
+}
+
+
+addPerson({name: "tammy", zodiac: "taurus"})
+addPerson({name: "Timmy", zodiac: "pisces", owner: "no one"})
+
+// ghetto javascript engine
+
+let javier = createPerson("javier", "aries")
+
+addPerson(javier)
+
+// addPerson(createPerson("javier", "aries"))
+
+// addPerson({
+//     name: nameInput,
+//     zodiac: zodiacInput,
+// })
+
+// addPerson({
+//     name: "javier",
+//     zodiac: "aries",
+// })
+
+//         addPerson = ({ name: "javier", zodiac: "aries"}) {
+//             const displayInput = document.createElement('li')
+//             const trashCan = document.createElement('span')
+//             const container = document.querySelector('#addPerson')
+//             // const zodiac = document.createElement("p")
+//             displayInput.innerText = `${person.name} ${person.zodiac} ${horoscopeResults(person.zodiac)}`
+//             // zodiac.innerText = horoscopeResults(zodiacInput)
+//             trashCan.innerText = " Delete"
+//             container.append(displayInput)
+//             displayInput.append(trashCan)
+//             // displayInput.append(zodiac)
+//         }
+
+
+
+function horoscopeResults(whateverParam){
     const horoscopes = {
         aries : "Aries: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
         taurus : "Taurus: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
@@ -60,10 +120,10 @@ function horoscopeResults (results){
         aquarius : "Aquarius: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
         pisces : "Pisces: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio."
     }
-  return horoscopes[results]
+    const horoscopeResult = horoscopes[whateverParam]
+
+    return horoscopeResult
 }
 
-let virgo = horoscopeResults("virgo")
-console.log("after running: ", virgo)
 
 
