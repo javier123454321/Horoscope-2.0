@@ -1,11 +1,4 @@
-
-/*Create a horoscope page
-Type in first name 
-Type in birthdate  
-click something 
-When a month and day are selected a prediction should pop up on the screen
-need 12 predictions (if this date range is choosen, show xyz)
-refesh and choose a differnt day
+/*
 ♈ Aries (Ram): March 21–April 19
 ♉ Taurus (Bull): April 20–May 20
 ♊ Gemini (Twins): May 21–June 21
@@ -20,35 +13,45 @@ refesh and choose a differnt day
 ♓ Pisces (Fish): February 19–March 20
 */
 
-
+const listOfPeople = []
 const form = document.querySelector('form').addEventListener("submit",preventMyDefault)
-
-
 
 function preventMyDefault(event){
     event.preventDefault()
     const nameInput = document.querySelector('#firstName')
     const zodiacInput = document.querySelector('#zodiac')
-    addPerson(nameInput.value, zodiacInput.value)
+    let person = createPerson(nameInput.value, zodiacInput.value)
+    listOfPeople.push(person)
     nameInput.value = ''
     zodiacInput.value = ''
 }
 
+const addPerson = person => {
+        const displayInput = document.createElement('li')
+        const trashCan = document.createElement('span')
+        const container = document.querySelector('#addPerson')
 
-const addPerson = (nameInput, zodiacInput) => {
-    const displayInput = document.createElement('li')
-    const trashCan = document.createElement('span')
-    const container = document.querySelector('#addPerson')
-    // const zodiac = document.createElement("p")
-    displayInput.innerText = `${nameInput} ${zodiacInput}`
-    zodiac.innerText = horoscopeResults()
-    trashCan.innerText = " Delete"
-    container.append(displayInput)
-    displayInput.append(trashCan)
-    // displayInput.append(zodiac)
+        displayInput.innerText = `${person.name} ${horoscopeResults(person.zodiac)}`
+        //may not need 
+        trashCan.classList.add("delete")
+        trashCan.innerText = " Delete"
+        container.append(displayInput)
+        displayInput.append(trashCan)
+    
 }
 
-const results = document.querySelector('#zodiac')
+// function deletePerson()
+
+function createPerson(nameInput, zodiacInput) {
+    const newPerson = {
+        name: nameInput,
+        zodiac: zodiacInput,
+    }
+    addPerson(newPerson)
+    return newPerson
+}
+
+
 function horoscopeResults (results){
     const horoscopes = {
         aries : "Aries: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
@@ -64,10 +67,11 @@ function horoscopeResults (results){
         aquarius : "Aquarius: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
         pisces : "Pisces: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio."
     }
-  console.log(horoscopes[results])
-  console.log(results)
-}
+    return horoscopes[results]
+    
+}   
 
-horoscopeResults("virgo")
+
+
 
 
