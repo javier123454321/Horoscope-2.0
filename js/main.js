@@ -13,35 +13,42 @@
 ♓ Pisces (Fish): February 19–March 20
 */
 
-const listOfPeople = []
-const form = document.querySelector('form').addEventListener("submit",preventMyDefault)
 
+const form = document.querySelector('form').addEventListener("submit",preventMyDefault)
+const deletePerson = document.querySelector(".removePerson").addEventListener("click", removePerson)
+const listOfPeople = []
+
+
+
+//to submit items in form without refreshing the page 
 function preventMyDefault(event){
     event.preventDefault()
     const nameInput = document.querySelector('#firstName')
     const zodiacInput = document.querySelector('#zodiac')
-    let person = createPerson(nameInput.value, zodiacInput.value)
+    let person = createPerson(nameInput.value, zodiacInput.value.toLowerCase())
     listOfPeople.push(person)
     nameInput.value = ''
     zodiacInput.value = ''
 }
 
+//to add a person after the submit 
 const addPerson = person => {
         const displayInput = document.createElement('li')
         const trashCan = document.createElement('span')
         const container = document.querySelector('#addPerson')
 
         displayInput.innerText = `${person.name} ${horoscopeResults(person.zodiac)}`
-        //may not need 
+
         trashCan.classList.add("delete")
-        trashCan.innerText = " Delete"
+        trashCan.innerText = "Delete"
+        // trashCan.innerHTML = <i class="fas fa-trash-alt"></i>
+
         container.append(displayInput)
         displayInput.append(trashCan)
     
 }
 
-// function deletePerson()
-
+//storing the person in an object 
 function createPerson(nameInput, zodiacInput) {
     const newPerson = {
         name: nameInput,
@@ -52,6 +59,20 @@ function createPerson(nameInput, zodiacInput) {
 }
 
 
+// removing the item from the dom (need to remove the item from the array object )
+function removePerson(event){
+    if (event.target.classList.contains("delete")){
+        console.log("you tried to delete me")
+        let deletePerson = event.target
+        deletePerson.parentElement.remove()
+        listOfPeople.shift()
+        //this doesn't work, it is only taking off the first person from the list rather then the person who was actually deleted.  Note sure how to fix this. 
+      
+    }
+}
+
+
+//list of objects that contain the prediction for the year 
 function horoscopeResults (results){
     const horoscopes = {
         aries : "Aries: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi magnam inventore rerum non ullam sunt consequuntur est architecto, eaque expedita, delectus obcaecati? Quibusdam odit est soluta ipsum impedit odio.",
