@@ -18,7 +18,7 @@
   margin-bottom: 160px;
   background-image: linear-gradient(45deg, rgb(243,233,233), transparent);
   position: relative;
-  animation: shooting 2.3s linear infinite;
+  animation: shooting 2s linear infinite;
   opacity: 0;
   filter: drop-shadow(0 0 6px rgb(122,168,255));
 }
@@ -39,7 +39,7 @@
   right: 30px;
 }
 .star:nth-child(2) span{
-  animation-delay: 1s;
+  animation-delay: 5s;
 }
 
 .star:nth-child(3){
@@ -63,32 +63,25 @@
   animation-delay: 1s;
 } 
 
-.star:nth-child(6){
-  right: 550px;
-}
-.star:nth-child(6) span{
-  animation-delay: 3s;
-}
-
- .star:nth-child(7){
+ .star:nth-child(6){
   right: 850px;
 }
-.star:nth-child(7) span{
+.star:nth-child(6) span{
   animation-delay: 1s;
 }
 
-.star:nth-child(8){
+.star:nth-child(7){
   right: -450px;
 }
 
- .star:nth-child(8) span{
+ .star:nth-child(7) span{
   animation-delay: 5s;
 }
 
-.star:nth-child(9){
+.star:nth-child(8){
   right: 250px;
 }
-.star:nth-child(9) span{
+.star:nth-child(8) span{
   animation-delay: 1s;
 }  
 
@@ -108,28 +101,41 @@
 html {
   background-image: url("..//images/backgroup.png");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100%;  
+  background-position: center; 
+  background-size: cover; 
+  height: 100%;   
   
 }
 
-body {
-  overflow: hidden;
-}
 
 h1 {
   color:rgb(243,233,233);
   text-align: center;
 }
 
-.container, li {
-  margin:auto;
-  width: 25%;
+.container {
+  margin: 3%;
+  width: 30%;
+  background-color: rgb(24,33,67,.8);
+  color:rgb(243,233,233);
+  border-radius: 7px; 
+}
+
+li{
+  margin: 3%;
   background-color: rgb(24,33,67,.8);
   color:rgb(243,233,233);
   border-radius: 7px;
- 
+  display: inline-block;
+  font-size: 18px;
+}
+
+ul{
+  margin: 5px;
+  padding: 5px;
+  /* background-color: rgb(24,33,67,.8); */
+  border-radius: 7px;
+  text-align:center;
 }
 
 form{
@@ -143,13 +149,6 @@ form{
   padding: 5px;
   width: 25%;
  
-}
-
-li{
-  display: inline;
-  font-size: 18px;
-  width: 15%;
-  
 }
 
 button{
