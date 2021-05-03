@@ -131,9 +131,9 @@ li{
 }
 
 ul{
+  display: flex;
   margin: 5px;
   padding: 5px;
-  /* background-color: rgb(24,33,67,.8); */
   border-radius: 7px;
   text-align:center;
 }
