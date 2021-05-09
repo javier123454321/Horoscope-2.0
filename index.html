@@ -9,51 +9,54 @@
 	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-	<div class="container">
-		<h1>Annual Horoscope</h1>
-		<form action="">
-			<label for="item">Enter First Name</label>
-			<input type="text" id="firstName" name="firstName">
-			<label for="item">Enter Zodiac:</label>
-			<input type="text" id="zodiac" name="zodiac">
-			<button class="submitBtn">Submit</button>
-		</form>
-	</div>
-	
-	<div class="resultsContainers">
-		<ul id="addPerson" class="removePerson">
+
+<header>
+	<h3 class="logo"><img src="/images/logo1.PNG" alt="Logo"></h3>
+	<input type="checkbox" id="nav-toggle" class="nav-toggle">
+	<nav>
+		<ul>
+			<li><a href="http://">Horoscope</a></li>
+			<li><a href="http://">Compatibility</a></li>
+			<li><a href="http://">Tarot</a></li>
+			<li><a href="http://">Contact Us</a></li>
 		</ul>
+	</nav>
+	<label for="nav-toggle" class="nav-toggle-label">
+		<span class=""></span>
+	</label>
+</header>
+
+<body>
+	
+
+	<div class="backgroundStyle">
+		<div class="paperRoll">
+			<div class="container">
+				<h1 class="title">Astrology Readings</h1>
+				<div class="formContainer">
+					<form action="">
+						<label for="item">Enter First Name</label>
+						<input type="text" id="firstName" name="firstName">
+						<label for="item">Select Birthdate:</label>
+						<input type="date" id="birthdate" name="birthdate">
+						<button class="submitBtn">Submit</button>
+					</form>
+				</div>
+			</div>
+		</dic>
+		
+		<div class="resultsContainers">
+			<ul id="addPerson" class="removePerson addPerson">
+			</ul>
+			<!-- <img class="img" src="images/aries2.jpg" width="20%" alt=""> -->
+		</div>
 	</div>
 
 
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
-	<div class="star">
-		<span class="shootingStar"></span>
-	</div>
+
 	
 	
 	
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
