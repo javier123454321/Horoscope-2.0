@@ -63,9 +63,10 @@ ul {
   
 }
 
-.img {
-  border-radius: 100px;
-  
+img {
+  border-radius: 10px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 /*start of modal */
