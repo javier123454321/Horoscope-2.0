@@ -16,10 +16,6 @@ function preventMyDefault(event) {
 
 
 
-
-
-
-
 function createPerson(nameInput, birthdateInput) {
     const newPerson = {
       name: nameInput,
@@ -43,13 +39,19 @@ const addPerson = person => {
   const container = document.querySelector("#addPerson")
 
   imageTag.classList.add("zodiacImage")
+
+  // <button data-modal-target="#modal">Open Modal</button>
+
+  editPerson.setAttribute("data-modal-target","#modal")
   trashCan.innerText = "Delete!"
   editPerson.innerText = "Edit"
+  //editPerson.innerHTML = `<button data-modal-target="#modal">Open Modal</button>`
   // trashCan.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>'
   // trashCan.className = "fas fa-trash-alt"
   // editPerson.innerHTML = `<i class="fa fa-pencil" aria-hidden="true"></i>`
   // editPerson.className = "fas fa-pencil-alt"
   
+
   displayInput.setAttribute("data-index", listOfPeople.length)
 
   trashCan.addEventListener("click", removePerson)
@@ -99,6 +101,47 @@ function removePerson(event) {
 
 
 function updateResults(event) {
+  const openModalButtons = document.querySelectorAll('[data-modal-target]')
+  const closeModalButtons = document.querySelectorAll('[data-close-button]')
+  const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button =>{
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal)
+})
+
+
+// form.addEventListener("submit", () => {
+//        preventMyDefault(event)
+//   })
+
+
+overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+        closeModal(modal)
+    })
+})
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal')
+        closeModal(modal)
+    })
+})
+
+function openModal(modal){
+    if (modal == null) return 
+    modal.classList.add('active')
+    overlay.classList.add('active')
+}
+
+
+function closeModal(modal){
+    if (modal == null) return 
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+}
     console.log("Oh no! Do you need to make a change?")
 }
 
