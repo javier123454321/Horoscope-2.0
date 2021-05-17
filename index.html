@@ -29,50 +29,51 @@
 	</label>
 </header>
 
-<body>
-	<div class="backgroundStyle">
+<body class="backgroundStyle">
 		<div class="paperRoll">
-			<div class="container">
-				<h1 class="title">Astrology Readings</h1>
-				<div class="formContainer">
-					<form action="">
-						<label for="name">Enter First Name</label>
-						<input type="text" id="firstName" name="firstName">
-						<label for="name">Select Birthdate:</label>
-						<input type="date" id="birthdate" name="birthdate">
-						<button class="submitBtn">Submit</button>
-					</form>
-				</div>
-			</div>
-		
-		
-		<div class="resultsContainers">
-			<ul id="addPerson" class="addPerson">
-			</ul>
-		</div>
+				<div class="container">
+					<h1 class="title">Astrology Readings</h1>
+								<div class="formContainer">
+									<form action="">
+										<div class="nameForm">
+											<label class="labelForm" for="name">Enter First Name:</label>
+											<input class="inputForm" type="text" id="firstName" name="firstName">
+										</div>
+										<div class="birthdateForm">
+											<label class="labelForm" for="name">Select Birthdate:</label>
+											<input class="inputForm" type="date" id="birthdate" name="birthdate">
+										</div>
+										<button class="submitBtn">Submit</button>
+									</form>
+								</div>
+				</div> 
+			
 
+								<div class="resultsContainers">
+										<ul id="addPerson" class="addPerson">
+										</ul>
+								</div> 
 	
 		
-		<div class="modal" id="modal">
-			<div class="modal-header">
-				<div class="title">Edit Your Information</div>
-				<button data-close-button class="close-button">&times;</button>
+			<div class="modal" id="modal">
+					<div class="modal-header">
+						<div class="title">Edit Your Information</div>
+						<button data-close-button class="close-button">&times;</button>
+					</div>
+					<div class="modal-body">
+							<div class="formContainer">
+								<form action="">
+									<label for="name">Enter First Name</label>
+									<input type="text" id="firstName" name="firstName">
+									<label for="name">Select Birthdate:</label>
+									<input type="date" id="birthdate" name="birthdate">
+									<button class="submitBtn">Submit</button>
+								</form>
+							</div>
+					</div>
 			</div>
-			<div class="modal-body">
-				<div class="formContainer">
-					<form action="">
-						<label for="name">Enter First Name</label>
-						<input type="text" id="firstName" name="firstName">
-						<label for="name">Select Birthdate:</label>
-						<input type="date" id="birthdate" name="birthdate">
-						<button class="submitBtn">Submit</button>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div  id="overlay"></div>
+			<div  id="overlay"></div>
 	</div>
-	
 
 	
 	
