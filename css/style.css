@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -14,15 +12,18 @@ body {
   margin: 0;
   font-family: "Macondo", cursive;
   font-weight: 400px;
+ 
 }
 
-.backgroundStyle {
-  height: 200vh;
+.backgroundStyle { 
   background-image: url("../images/background.jpg");
-  background-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
+  background-repeat: no-repeat;
   background-size: cover;
-  display: grid;
-  place-items: center;
+  background-attachment: fixed;
+
+
+  /* place-items: center; */
 }
 
 /*navigation styles start here */
@@ -30,9 +31,9 @@ body {
 header {
     background: var(--background);
     text-align: center;
-    position: fixed;
-    z-index: 999;
+    z-index: 1;
     width: 100%;
+    
   }
   
   .nav-toggle {
@@ -84,6 +85,8 @@ header {
     transform: scale(1, 0);
     transform-origin: top;
     transition: transform 400ms ease-in-out;
+    position: sticky;
+    
   }
   
   nav ul {
@@ -133,11 +136,6 @@ header {
       display: none;
     }
   
-    /* .paperRoll {
-      width: 100%;
-      background:rgba(66, 39, 8, 0.5)
-    } */
-  
     header {
       display: grid;
       grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
@@ -145,20 +143,11 @@ header {
   
     .logo {
       grid-column: 2 / 3;
-      margin: 3px;
+      margin: 0px;
     }
   
     nav {
       all: unset;
-  
-      /* position: relative;
-      text-align: left;
-      transition: none;
-      transform: scale(1,1);
-      background: none;
-      top: initial;
-      left: initial; */
-  
       grid-column: 3 / 4;
       display: flex;
       justify-content: flex-end;
