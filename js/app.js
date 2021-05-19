@@ -1,4 +1,7 @@
-const form = document.querySelector('form').addEventListener('submit', preventMyDefault)
+const form = document.querySelector('form')
+
+form.addEventListener('submit', preventMyDefault)
+console.log({ form })
 const listOfPeople = []
 
 
@@ -127,9 +130,11 @@ openModalButtons.forEach(button =>{
 })
 
 
-// form.addEventListener("submit", () => {
-//        preventMyDefault(event)
-//   })
+const modalBody = document.querySelector('.modal-body')
+
+const modalForm = modalBody.querySelector("form")
+
+modalForm.addEventListener("submit", preventMyDefault)
 
 
 overlay.addEventListener('click', () => {
@@ -312,3 +317,91 @@ const createHoroscopesResults = zodiacSign => {
   }
   return zodiacResults[zodiacSign]
 }
+
+function fn1(param){
+  return "whatever " + param
+}
+
+console.log( fn1 )
+console.log( fn1("rolling") )
+
+
+
+function runCallback(callback) {
+  const innerVariable = "apple"
+  console.log( callback(innerVariable) )
+}
+
+runCallback(fn1)
+
+      // runCallback(function fn1(param){
+      //   return "whatever " + param
+      // })
+
+
+      //   function runCallback(callback) {
+      //     const innerVariable = "apple"
+      //     console.log( function fn1(param){
+      //       return "whatever " + param
+      //     }(innerVariable) )
+      //   }
+
+
+      //     function runCallback(callback) {
+      //       const innerVariable = "apple"
+      //       console.log( function fn1(param){
+      //         return "whatever " + param
+      //       }("apple") )
+      //     } 
+
+// runCallback((fruit) => { 
+//   return "pears and " + fruit
+// })
+
+
+
+// function fn1(param){
+//   return "whatever " + param
+// }
+
+function runCallback(callback) {
+  const innerVariable = "apple"
+  console.log( callback(innerVariable) )
+}
+
+// runCallback(fn1)
+
+// const fruitFunction = (fruit) => { 
+//     return "pears and " + fruit
+//   }
+
+// runCallback(fruitFunction)
+runCallback((fruit) => { 
+  return "pears and " + fruit
+})
+
+
+function add(a) {
+  return a + 2
+}
+
+
+
+
+function createPerson(nameInput, birthdateInput) {
+  const newPerson = {
+    name: nameInput,
+    birthdate: birthdateInput,
+  }
+  const zodiac = getZodiacFromBirthdate(newPerson.birthdate)
+  newPerson.zodiacSign = zodiac
+  return newPerson
+} 
+
+let name = "sam"
+function rename(newName) {
+  this.name = newName
+}
+
+const person1 = createPerson("Tammi", "02-20-2000")
+
